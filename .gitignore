@@ -6,7 +6,5 @@ glm/logs/
 data_scripts/
 logs/
 scripts/
-tasks/
 running.log
-manager.py
 PATH.sh

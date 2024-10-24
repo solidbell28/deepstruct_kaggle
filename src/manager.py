@@ -171,7 +171,7 @@ TASK_ARGS={task_args.format(args.task_epochs, args.length_penalty, args.src_seq_
 
     CreateFolder("scripts")
     with open(f"scripts/{args.task}.sh", "w") as f:
-        run_command = f"bash scripts/ds_finetune_seq2seq{'_multiserver' if args.multi_server else ''}.sh config_tasks/{args.model_type}.sh config_tasks/seq_cnndm_org.sh {args.task}"
+        run_command = f"bash glm/scripts/ds_finetune_seq2seq{'_multiserver' if args.multi_server else ''}.sh glm/config_tasks/{args.model_type}.sh glm/config_tasks/seq_cnndm_org.sh {args.task}"
         if args.task.startswith("fewrel"):
             commands = "\n".join(
                 f"""
@@ -189,19 +189,15 @@ cd ../../deepstruct/glm/
         f.write(
             f"""
 source PATH.sh
-cd ./dataset_processing
-python3 run.py {args.task} -mode {args.mode} --data_only
-cd ../
-cd ./glm
+python3 dataset_processing/run.py {args.task} -mode {args.mode} --data_only
 {commands}
-cd ../
 """
         )
         if args.task in ['oie_nyt', 'oie_oie2016', 'oie_penn', 'oie_web']:
             f.write(f"python oie-eval/supervised-oie-benchmark/evaluate_oie.py -task {args.task.split('_')[-1]}\n")
         if args.task in ['conll12_coref', 'ace2005event_argument']:
             f.write(
-                f"cd ./dataset_processing/ && python run.py {args.task} -mode multi --evaluate_only && cd ../")
+                f"python dataset_processing/run.py {args.task} -mode multi --evaluate_only")
 
     CreateFolder("logs")
     handler = subprocess.Popen(f"bash scripts/{args.task}.sh",
