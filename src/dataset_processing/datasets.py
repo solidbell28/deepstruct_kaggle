@@ -688,7 +688,7 @@ class JointERDataset(BaseDataset):
         return source, target
 
     def preprocess_for_glm(self, mode, dataset, fewshot=-1, debug=False):
-        dataset_name = self.name; DATA_DIR = self.data_dir()+"/"
+        dataset_name = self.name; DATA_DIR = self.data_dir()[3:] + "/" # removing first ../
         source,target = self.preprocess_for_glm_single(self.load_data_single_split('train'), mode, dataset)
 
 
