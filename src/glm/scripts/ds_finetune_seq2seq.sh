@@ -41,7 +41,7 @@ run_cmd="${DISTRIBUTED_ARGS} finetune_glm.py \
        --overwrite \
        2>&1 | tee logs/log-${EXPERIMENT_NAME}.txt"
 
-echo $EXPERIMENT_NAME > "runs/latest_run"
+echo $EXPERIMENT_NAME > "glm/runs/latest_run"
 
 echo ${run_cmd}
 eval ${run_cmd}
