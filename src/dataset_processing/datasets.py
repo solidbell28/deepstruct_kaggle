@@ -1549,7 +1549,7 @@ class ACE2005EventTriggerDataset(NERDataset):
     name = 'ace2005event_trigger'
     data_name = 'ace2005event_trigger'
 
-    relation_schemas = json.load(open("./ace2005event_types.json"))
+    relation_schemas = json.load(open("./dataset_processing/ace2005event_types.json"))
 
     def load_data_single_split(self, split: str, seed: int = None) -> List[InputExample]:
         """
@@ -1608,7 +1608,7 @@ class ACE2005EventArgumentDataset(NERDataset):
     data_name = 'ace2005event_argument'
 
     default_output_format = 'event_argument'
-    relation_schemas = json.load(open("./ace2005event_types.json"))
+    relation_schemas = json.load(open("./dataset_processing/ace2005event_types.json"))
 
     def load_data_single_split(self, split: str, seed: int = None) -> List[InputExample]:
         """
