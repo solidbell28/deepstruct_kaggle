@@ -22,7 +22,7 @@ def main():
 
     parser = argparse.ArgumentParser()
     parser.add_argument('job')
-    parser.add_argument('-c', '--config_file', type=str, default='config.ini', help='configuration file')
+    parser.add_argument('-c', '--config_file', type=str, default='dataset_processing/config.ini', help='configuration file')
     parser.add_argument('-e', '--eval', action='store_true', default=False, help='run evaluation only')
     parser.add_argument('--evaluate_checkpoints', action='store_true', default=False,
                         help='evaluate intermediate checkpoints instead of the final model')
