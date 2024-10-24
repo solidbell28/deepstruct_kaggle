@@ -15,7 +15,7 @@ from datasets import load_dataset
 from evaluate import evaluate, get_avg_results, print_results
 from utils import get_episode_indices
 
-import time
+
 def main():
     assert torch.cuda.is_available(), 'CUDA not available'
 
@@ -48,12 +48,7 @@ def main():
     config = configparser.ConfigParser(allow_no_value=False)
     config.read(args.config_file)
     job = args.job
-    print("CONFIG")
-    print(config)
-    print("JOB")
-    print(job)
-    time.sleep(10)
-    assert job in config
+    #assert job in config
 
 
     defaults = {
