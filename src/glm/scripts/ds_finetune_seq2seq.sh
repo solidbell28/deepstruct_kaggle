@@ -19,7 +19,7 @@ OPTIONS_NCCL="NCCL_DEBUG=info NCCL_IB_DISABLE=0 NCCL_NET_GDR_LEVEL=2"
 DISTRIBUTED_ARGS="${OPTIONS_NCCL} deepspeed --hostfile ${HOST_FILE_PATH} --master_port ${MASTER_PORT} --num_nodes ${NUM_WORKERS} --num_gpus ${NUM_GPUS_PER_WORKER}"
 
 EXPERIMENT_NAME=${EXPERIMENT_NAME}_${DATESTR}
-mkdir logs
+
 run_cmd="${DISTRIBUTED_ARGS} glm/finetune_glm.py \
        --deepspeed \
        --deepspeed_config glm/config_tasks/config.json \

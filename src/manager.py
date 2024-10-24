@@ -199,7 +199,7 @@ python3 dataset_processing/run.py {args.task} -mode {args.mode} --data_only
             f.write(
                 f"python dataset_processing/run.py {args.task} -mode multi --evaluate_only")
 
-    #CreateFolder("logs")
+    CreateFolder("logs")
     handler = subprocess.Popen(f"bash scripts/{args.task}.sh",
                                shell=True,
                                stdout=subprocess.PIPE)
