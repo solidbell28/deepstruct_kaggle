@@ -833,8 +833,9 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     dataset_path = f"../data/{args.task}/"
-    with open(dataset_path + "test.jsonl.hyps", "r") as f:
-        hyps = [s.strip() for s in f.readlines()]
+    hyps = []
+    #with open(dataset_path + "test.jsonl.hyps", "r") as f:
+    #    hyps = [s.strip() for s in f.readlines()]
     with open(dataset_path + "test.target", "r") as f:
         refs = [s.strip() for s in f.readlines()]
     with open(dataset_path + "test.source", "r") as f:
