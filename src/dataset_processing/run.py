@@ -48,7 +48,7 @@ def main():
     config = configparser.ConfigParser(allow_no_value=False)
     config.read(args.config_file)
     job = args.job
-    #assert job in config
+    assert job in config
 
 
     defaults = {
