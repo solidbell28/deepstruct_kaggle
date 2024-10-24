@@ -20,7 +20,7 @@ DISTRIBUTED_ARGS="${OPTIONS_NCCL} deepspeed --hostfile ${HOST_FILE_PATH} --maste
 
 EXPERIMENT_NAME=${EXPERIMENT_NAME}_${DATESTR}
 mkdir logs
-run_cmd="${DISTRIBUTED_ARGS} finetune_glm.py \
+run_cmd="${DISTRIBUTED_ARGS} glm/finetune_glm.py \
        --deepspeed \
        --deepspeed_config glm/config_tasks/config.json \
        --finetune \

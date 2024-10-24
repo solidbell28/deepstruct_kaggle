@@ -151,7 +151,7 @@ if __name__ == "__main__":
         f.write(
             f"""
 MODEL_TYPE={'-'.join(args.model_type.split('_')[1:])}
-MODEL_ARGS={supported_model_args[args.model_type].format(args.model_checkpoint)}
+MODEL_ARGS={supported_model_args[args.model_type].format(args.model_checkpoint[3:])} # removing first ../
 """
         )
 
@@ -199,7 +199,7 @@ python3 dataset_processing/run.py {args.task} -mode {args.mode} --data_only
             f.write(
                 f"python dataset_processing/run.py {args.task} -mode multi --evaluate_only")
 
-    CreateFolder("logs")
+    #CreateFolder("logs")
     handler = subprocess.Popen(f"bash scripts/{args.task}.sh",
                                shell=True,
                                stdout=subprocess.PIPE)
