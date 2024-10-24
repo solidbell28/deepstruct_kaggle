@@ -488,7 +488,7 @@ class JointERDataset(BaseDataset):
         """
         examples = []
         name = self.name if self.data_name is None else self.data_name
-        file_path = os.path.join(self.data_dir(), f'{name}_{split}.json')
+        file_path = os.path.join(self.data_dir(), f'{name}_{split}.json')[2:] # removing first ../
 
         with open(file_path, 'r') as f:
             data = json.load(f)
