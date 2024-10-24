@@ -1,2 +1,2 @@
-ROOT=../..
+ROOT=..
 CHECKPOINTROOT=./

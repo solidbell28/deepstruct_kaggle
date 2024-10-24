@@ -22,7 +22,7 @@ EXPERIMENT_NAME=${EXPERIMENT_NAME}_${DATESTR}
 mkdir logs
 run_cmd="${DISTRIBUTED_ARGS} finetune_glm.py \
        --deepspeed \
-       --deepspeed_config config_tasks/config.json \
+       --deepspeed_config glm/config_tasks/config.json \
        --finetune \
        --experiment-name ${EXPERIMENT_NAME} \
        --task ${TASK_NAME} \
