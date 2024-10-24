@@ -70,7 +70,7 @@ class BaseDataset(Dataset, ABC):
             self.data_dir(),
             f"cached_{self.name}_{mode}_{tokenizer.__class__.__name__}_{max_input_length}_{max_output_length}"
             f"{'_multitask' if data_args.multitask else ''}.pth"
-        )
+        )[3:] # removing first ../
 
         with torch_distributed_zero_first(local_rank):
 
