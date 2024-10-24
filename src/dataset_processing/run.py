@@ -48,6 +48,10 @@ def main():
     config = configparser.ConfigParser(allow_no_value=False)
     config.read(args.config_file)
     job = args.job
+    print("CONFIG")
+    print(config)
+    print("JOB")
+    print(job)
     assert job in config
 
 
