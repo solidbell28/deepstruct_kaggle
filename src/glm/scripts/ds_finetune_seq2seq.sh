@@ -1,4 +1,4 @@
-source ../PATH.sh
+source src/PATH.sh
 DATA_ROOT=$ROOT/data
 CHECKPOINT_PATH=$CHECKPOINTROOT
 SAVE_PATH=$ROOT/finetune_checkpoints
