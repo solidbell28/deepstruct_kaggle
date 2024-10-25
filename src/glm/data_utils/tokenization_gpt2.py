@@ -23,12 +23,12 @@ from .file_utils import cached_path
 logger = logging.getLogger(__name__)
 
 PRETRAINED_VOCAB_ARCHIVE_MAP = {
-    'gpt2': ".pytorch_pretrained_bert/gpt2-vocab.json",
-    "roberta": ".pytorch_pretrained_bert/roberta-vocab.json"
+    'gpt2': "glm/.pytorch_pretrained_bert/gpt2-vocab.json",
+    "roberta": "glm/.pytorch_pretrained_bert/roberta-vocab.json"
 }
 PRETRAINED_MERGES_ARCHIVE_MAP = {
-    'gpt2': ".pytorch_pretrained_bert/gpt2-merges.txt",
-    "roberta": ".pytorch_pretrained_bert/roberta-merges.txt"
+    'gpt2': "glm/.pytorch_pretrained_bert/gpt2-merges.txt",
+    "roberta": "glm/.pytorch_pretrained_bert/roberta-merges.txt"
 }
 PRETRAINED_VOCAB_POSITIONAL_EMBEDDINGS_SIZE_MAP = {
     'gpt2': 1024,
@@ -117,8 +117,8 @@ class GPT2Tokenizer(object):
 
 
 
-        resolved_vocab_file = "glm/" + vocab_file
-        resolved_merges_file = "glm/" + merges_file
+        resolved_vocab_file = vocab_file
+        resolved_merges_file = merges_file
         logger.info("loading vocabulary file {}".format(vocab_file))
         logger.info("loading merges file {}".format(merges_file))
         if pretrained_model_name_or_path in PRETRAINED_VOCAB_POSITIONAL_EMBEDDINGS_SIZE_MAP:
