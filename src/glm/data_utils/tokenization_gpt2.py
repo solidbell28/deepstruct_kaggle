@@ -118,7 +118,7 @@ class GPT2Tokenizer(object):
 
 
         resolved_vocab_file = "glm/" + vocab_file
-        resolved_merges_file = merges_file
+        resolved_merges_file = "glm/" + merges_file
         logger.info("loading vocabulary file {}".format(vocab_file))
         logger.info("loading merges file {}".format(merges_file))
         if pretrained_model_name_or_path in PRETRAINED_VOCAB_POSITIONAL_EMBEDDINGS_SIZE_MAP:
