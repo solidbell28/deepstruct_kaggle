@@ -200,6 +200,7 @@ python3 dataset_processing/run.py {args.task} -mode {args.mode} --data_only
                 f"python dataset_processing/run.py {args.task} -mode multi --evaluate_only")
 
     CreateFolder("logs")
+    CreateFolder(f"glm/{args.experiment_name}")
     handler = subprocess.Popen(f"bash scripts/{args.task}.sh",
                                shell=True,
                                stdout=subprocess.PIPE)
