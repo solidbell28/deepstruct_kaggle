@@ -76,7 +76,7 @@ def accuracy_func_provider(single_dataset_provider, metric_dict, args, is_test=F
             predictions, labels, examples = eval_func(model, dataloader, example_dict, args)
             elapsed_time = time.time() - start_time
             if output_predictions and torch.distributed.get_rank() == 0:
-                filename = os.path.join(args.log_dir, name + '.jsonl')
+                filename = os.path.join('glm/runs', name + '.jsonl')
                 output_func(predictions, examples, filename)
             total_count = len(predictions)
             single_dict = {key: metric(predictions, labels, examples) for key, metric in metric_dict.items()}
