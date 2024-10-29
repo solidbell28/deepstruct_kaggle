@@ -1,6 +1,7 @@
 from pyheaven import *
 import subprocess
 import sys
+import os
 
 supported_tasks = [
     "ace2005_joint_er",
@@ -200,7 +201,7 @@ python3 dataset_processing/run.py {args.task} -mode {args.mode} --data_only
                 f"python dataset_processing/run.py {args.task} -mode multi --evaluate_only")
 
     CreateFolder("logs")
-    CreateFolder(f"glm/{args.experiment_name}")
+    CreateFolder(os.path.join('glm', 'runs', args.experiment_name))
     handler = subprocess.Popen(f"bash scripts/{args.task}.sh",
                                shell=True,
                                stdout=subprocess.PIPE)
