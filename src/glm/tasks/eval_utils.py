@@ -16,6 +16,7 @@ from typing import List
 from tasks.data_utils import InputExample
 from sklearn.metrics import f1_score
 import numpy as np
+from pyheaven import *
 
 
 def accuracy_metric(predictions, labels, examples):
@@ -76,6 +77,7 @@ def accuracy_func_provider(single_dataset_provider, metric_dict, args, is_test=F
             predictions, labels, examples = eval_func(model, dataloader, example_dict, args)
             elapsed_time = time.time() - start_time
             if output_predictions and torch.distributed.get_rank() == 0:
+                CreateFolder(os.path.join('glm', 'runs', args.experiment_name))
                 filename = os.path.join('glm', 'runs', args.experiment_name, name + '.jsonl')
                 output_func(predictions, examples, filename)
             total_count = len(predictions)
