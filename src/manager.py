@@ -148,7 +148,7 @@ if __name__ == "__main__":
 
     CreateFolder("glm/runs")
     CreateFolder("glm/config_tasks")
-    model_type_arg = '-'.join(args.model_type.split('_')[1:])
+    experiment_name = '-'.join(args.model_type.split('_')[1:])
     with open(f"glm/config_tasks/{args.model_type}.sh", "w") as f:
         f.write(
             f"""
@@ -202,7 +202,7 @@ python3 dataset_processing/run.py {args.task} -mode {args.mode} --data_only
                 f"python dataset_processing/run.py {args.task} -mode multi --evaluate_only")
 
     CreateFolder("logs")
-    CreateFolder(os.path.join('glm', 'runs', model_type_arg))
+    CreateFolder(os.path.join('glm', 'runs', model_type_arg + '-cnndm_org'))
     handler = subprocess.Popen(f"bash scripts/{args.task}.sh",
                                shell=True,
                                stdout=subprocess.PIPE)
