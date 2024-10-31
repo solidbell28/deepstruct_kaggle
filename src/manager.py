@@ -132,6 +132,8 @@ if __name__ == "__main__":
         IntArgumentDescriptor("num-gpus-per-node", short="ngpn", default=1),
     ])
 
+    print("GPUS PER NODE:", args.num_gpus_per_node)
+
     content = open('src/glm/scripts/ds_finetune_seq2seq.sh').read()
     with open('glm/scripts/ds_finetune_seq2seq.sh', 'w') as f:
         f.write(content.replace('NUM_GPUS_PER_WORKER=8', f'NUM_GPUS_PER_WORKER={args.num_gpus_per_node}'))
