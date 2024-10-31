@@ -38,8 +38,10 @@ supported_tasks = [
     "multi_woz",
     "nyt",
     "nyt_re",
-    "snips"
+    "snips",
+    "ccode" # CUSTOM
 ]
+
 supported_model_args = {
     "model_blocklm_110M":
         """\"--block-lm \\
@@ -85,12 +87,14 @@ supported_model_args = {
                     --tokenizer-type GPT2BPETokenizer \\
                     --load-pretrained {0}\"""",
 }
+
 supported_modes = [
     "default",
     "multi",
     "empha",
     "task",
 ]
+
 train_args = """\"--epochs {0} \\
             --batch-size 4 \\
             --lr 1e-5 \\
