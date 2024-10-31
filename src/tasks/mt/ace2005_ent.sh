@@ -3,4 +3,3 @@ python3 manager.py --model-type model_blocklm_10B \
                    --task ace2005_joint_er \
                    --task-epochs 0 \
                    --length-penalty 0.8
-                   --num_gpus_per_node=2
