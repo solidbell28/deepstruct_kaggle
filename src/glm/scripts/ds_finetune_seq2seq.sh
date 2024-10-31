@@ -9,7 +9,7 @@ source $1    # Model
 TASK_DATASET=$3
 source $2    # Task
 
-NUM_WORKERS=1
+NUM_WORKERS=2
 NUM_GPUS_PER_WORKER=8
 HOST_FILE_PATH="./hostfile"
 MP_SIZE=1
