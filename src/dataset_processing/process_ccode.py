@@ -27,4 +27,4 @@ def preprocess(path):
 
 
 if __name__ == "__main__":
-    preprocess('../data/ccode/ccode.json')
+    preprocess('../data/ccode/ccode_test.json')
