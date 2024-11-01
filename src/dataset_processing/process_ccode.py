@@ -18,7 +18,7 @@ def preprocess(path):
             entities.append(entity)
         elem = {
             "tokens": tokens,
-            "entitites": entities
+            "entities": entities
         }
         res.append(elem)
     output = json.dumps(res)
