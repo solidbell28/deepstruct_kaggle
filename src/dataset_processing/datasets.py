@@ -79,6 +79,7 @@ TASK_MAPPING = {
     "FewRelEpisodic":"Relation Classification",
     "atis":"Intent Detection",
     "snips":"Intent Detection",
+    "ccode":"Named Entity Recognition"
 }
 
 def fix(string):
@@ -3673,3 +3674,24 @@ class ATISDataset(SnipsDataset):
             elif el.startswith('I-'):
                 current_entity.end = ii + 1
         return entities
+
+
+@register_dataset
+class CulturalCodeDataset(JointERDataset):
+    """
+    Cultural Code dataset (named entity recognition)
+    """
+
+    name = 'cultural_code'
+    num_episodes = 1
+
+    prompt = "cultural code sentence : Newspaper ` Explains ' U.S. Interests Section Events FL1402001894 Havana Radio Reloj Network in Spanish 2100 GMT 13 Feb 94 [SEP] tuples : ( radio reloj network ; organization based in ; havana ) ( radio reloj network ; instance of ; organization ) ( havana ; instance of ; location ) ( u.s. ; instance of ; location ) ( 2100 gmt ; instance of ; other ) ( 13 feb 94 ; instance of ; other ) [SEP] conll04 sentence : ` ` If it does not snow , and a lot , within this month we will have no water to submerge 150 , 000 hectares ( 370 , 500 acres ) of rice , ' ' said Bruno Pusterla , a top official of the Italian Agricultural Confederation . [SEP] tuples : ( bruno pusterla ; works for ; italian agricultural confederation ) ( bruno pusterla ; instance of ; person ) ( italian agricultural confederation ; instance of ; organization ) ( 150 , 000 hectares ; instance of ; other ) ( 370 , 500 acres ; instance of ; other ) ( rice ; instance of ; other ) [SEP] conll04 sentence : The self-propelled rig Avco 5 was headed to shore with 14 people aboard early Monday when it capsized about 20 miles off the Louisiana coast , near Morgan City , Lifa said. [SEP] tuples : ( morgan city ; located in ; louisiana ) ( morgan city ; instance of ; location ) ( louisiana ; instance of ; location ) ( 20 miles ; instance of ; other ) ( lifa ; instance of ; person ) [SEP] conll04 sentence : Annie Oakley , also known as Little Miss Sure Shot , was born Phoebe Ann Moses in Willowdell , Darke County , in 1860 . [SEP] tuples : ( annie oakley ; lives in ; willowdell , darke county ) ( annie oakley ; instance of ; person ) ( willowdell , darke county ; instance of ; location ) ( little miss sure shot ; lives in ; willowdell , darke county ) ( little miss sure shot ; instance of ; person ) ( willowdell , darke county ; instance of ; location ) ( phoebe ann moses ; lives in ; willowdell , darke county ) ( phoebe ann moses ; instance of ; person ) ( willowdell , darke county ; instance of ; location ) [SEP] conll04 sentence : Penry raped Pamela Moseley Carpenter on Oct. 15 , 1979 , in Livingston , Texas , then stabbed her to death . [SEP] tuples : ( livingston ; located in ; texas ) ( livingston ; instance of ; location ) ( texas ; instance of ; location ) ( penry ; instance of ; person ) ( pamela moseley carpenter ; instance of ; person ) ( oct. 15 , 1979 ; instance of ; other ) [SEP] "
+
+    natural_entity_types = {
+        'Loc': 'location',
+        'Org': 'organization',
+        'Peop': 'person',
+        'Other': 'other',
+    }
+
+    default_output_format = "ner"
